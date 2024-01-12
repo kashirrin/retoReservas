@@ -1,0 +1,39 @@
+plugins {
+    id 'org.springframework.boot' version '2.7.4'  // Esta versión es compatible con Java 11, es la versión que uso yo
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'main.java.com.retoreserva'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '11'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'javax.servlet:javax.servlet-api:3.1.0'
+    implementation 'com.oracle.database.jdbc:ojdbc8:19.8.0.0'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-tomcat'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+wrapper {
+    gradleVersion = '7.3'
+    distributionType = Wrapper.DistributionType.ALL
+}
+
+springBoot {
+    mainClass = 'main.java.com.retoreserva.Application'
+}
